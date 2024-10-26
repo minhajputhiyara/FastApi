@@ -51,7 +51,7 @@ async def extract_text_from_pdf(pdf_file: UploadFile):
 
 @app.post("/add_resume/")
 async def add_resume(candidate_name: str = Form(...), file: UploadFile = File(...)):
-    FNdatabase()
+    collections=FNdatabase()
     resume_text = await extract_text_from_pdf(file)
     if not isinstance(resume_text, str):
         resume_text = str(resume_text)
